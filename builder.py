@@ -87,36 +87,6 @@ if cmd == "create":
     server_version = argv[4]
     server_type = argv[3]
 
-    """
-    # On tente d'utiliser l'api parpermc
-    pprmc = "https://api.papermc.io/v2/projects"
-
-    print("Recherche dans l'api de papermc...")
-    paper_projects = get(pprmc).json()["projects"]
-
-    if server_type in paper_projects:
-        # On peut utiliser l'api parpermc, letsgo
-        print("Type de serveur trouvé")
-
-        print("Recherche d'un build de la version...")
-        pprmc += f"/{server_type}/versions/{server_version}/builds"
-
-        builds = get(pprmc).json()["builds"]
-
-        if len(builds) == 0:
-            print("Aucun build trouvé. Fin du programme")
-            exit()
-
-        id = len(builds)-1
-        build = builds[id]["build"]
-        download = builds[id]["downloads"]["application"]["name"]
-
-        print("Build trouvé, téléchargement du fichier...")
-
-        pprmc += f"/{build}/downloads/{download}"
-        os.system(f"wget {pprmc} -P version_jars/")
-    """
-
     jar_path = f"version_jars/{server_type}_{server_version}.jar"
 
     if os.path.exists(server_name):
